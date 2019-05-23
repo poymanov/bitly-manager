@@ -6,7 +6,7 @@
 
 Для взаимодействия с **bitly** требуется получить [API-токен](https://support.bitly.com/hc/en-us/articles/230647907-How-do-I-find-my-OAuth-access-token-).
 
-Для работы приложения требуется Python 3.
+Для работы приложения требуется **Python 3**.
 
 Установить зависимости приложения:
 ```
@@ -18,9 +18,14 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Указать API-ключ в `.env`:
+Указать **API-ключ** в `.env`:
 ```
 BITLY_TOKEN=<token>
+```
+
+Запуск:
+```
+python main.py
 ```
 
 ### Цель проекта
