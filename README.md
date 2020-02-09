@@ -2,16 +2,15 @@
 
 Приложение позволяет сокращать ссылки через [bitly](https://bitly.com/) и получать статистику переходов по сокращенным ссылкам.
 
-### Как установить
+[![asciicast](https://asciinema.org/a/nSQufceSLBj1Vcq3q0TbIVQTU.svg)](https://asciinema.org/a/nSQufceSLBj1Vcq3q0TbIVQTU)
+
+### Установка
+
+Для работы приложения требуется **Docker** и **Docker Compose**.
+
+### Настройка
 
 Для взаимодействия с **bitly** требуется получить [API-токен](https://support.bitly.com/hc/en-us/articles/230647907-How-do-I-find-my-OAuth-access-token-).
-
-Для работы приложения требуется **Python 3**.
-
-Установить зависимости приложения:
-```
-pip install -r requirements.txt
-```
 
 Подготовить файл для хранения API-токена сервиса:
 ```
@@ -23,9 +22,23 @@ cp .env.example .env
 BITLY_TOKEN=<token>
 ```
 
-Запуск:
+### Запуск
+
+Создание сокращенной ссылки:
+
 ```
-python main.py
+make run args=http://site.ru
+```
+
+Получение статистики по ссылке:
+
+```
+make run args=http://bit.ly/test
+```
+
+Удаление всех временных файлов приложения:
+```
+make flush
 ```
 
 ### Цель проекта

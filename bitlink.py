@@ -1,9 +1,6 @@
 import requests
 import re
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 TOKEN = os.environ['BITLY_TOKEN']
 
@@ -17,7 +14,7 @@ def get_headers():
     return {
         'Authorization': 'Bearer {}'.format(TOKEN),
         'Content-Type': 'application/json'
-      }
+    }
 
 
 def process_url(url):
@@ -29,7 +26,7 @@ def process_url(url):
 
 def create_url(url):
     payload = {
-      'long_url': url,
+        'long_url': url,
     }
 
     response = requests.post(CREATE_URL, json=payload, headers=get_headers())
@@ -41,14 +38,9 @@ def create_url(url):
 
 
 def get_url_stats(url):
-    payload = {
-      'unit': 'day',
-      'units': -1
-    }
-
     url = STATS_URL.format(prepare_url(url))
 
-    response = requests.get(url, json=payload, headers=get_headers())
+    response = requests.get(url, headers=get_headers())
 
     if not response.ok:
         return None
